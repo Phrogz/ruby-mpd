@@ -54,7 +54,7 @@ class MPD
     RETURN_ARRAY = Set[:channels, :outputs, :readmessages, :list,
       :listallinfo, :find, :search, :listplaylists, :listplaylist, :playlistfind,
       :playlistsearch, :plchanges, :tagtypes, :commands, :notcommands, :urlhandlers,
-      :decoders, :listplaylistinfo, :playlistinfo]
+      :decoders, :listplaylistinfo, :playlistinfo, :commandlist]
 
     # Parses key-value pairs into correct class.
     def parse_key(key, value)
@@ -115,8 +115,8 @@ class MPD
 
     # Converts the response to MPD::Song objects.
     # @return [Array<MPD::Song>] An array of songs.
-    def build_songs_list(array)
-      return array.map { |hash| Song.new(self, hash) }
+    def build_songs_list(array=nil)
+      array.map { |hash| Song.new(self, hash) } if array
     end
 
     # Remove lines which we don't want.
