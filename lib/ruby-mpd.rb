@@ -176,7 +176,7 @@ class MPD
     send_command :ping
   end
 
-  # Used to send a command to the server, and to recieve the reply.
+  # Used to send a command to the server, and to receive the reply.
   # Reply gets parsed. Synchronized on a mutex to be thread safe.
   #
   # Can be used to get low level direct access to MPD daemon. Not
