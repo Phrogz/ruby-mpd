@@ -69,8 +69,4 @@ module MPD::Plugins
         @mpd.send(:socket).puts @mpd.send(:convert_command, command, *args)
       end
   end
-<<<<<<< HEAD
 end
-=======
-end
->>>>>>> command-lists
