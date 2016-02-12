@@ -62,10 +62,15 @@ module MPD::Plugins
     include MPD::Plugins::PlaybackOptions
     include MPD::Plugins::Queue
     include MPD::Plugins::Stickers
+    include MPD::Plugins::Database
 
     private
       def send_command(command,*args)
         @mpd.send(:socket).puts @mpd.send(:convert_command, command, *args)
       end
   end
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> command-lists
