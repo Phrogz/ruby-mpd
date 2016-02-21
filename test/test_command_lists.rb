@@ -1,5 +1,5 @@
-require '../lib/ruby-mpd'
-require './socket_spoof'
+require_relative '../lib/ruby-mpd'
+require_relative './socket_spoof'
 require 'minitest/autorun'
 
 class PlaybackMPD < MPD
@@ -14,7 +14,8 @@ end
 
 class TestQueue < MiniTest::Unit::TestCase
   def setup
-    @mpd = PlaybackMPD.new 'socket_recordings'
+    spoof_dir = File.expand_path('../socket_recordings',__FILE__)
+    @mpd = PlaybackMPD.new spoof_dir
   end
 
   def test_songs
